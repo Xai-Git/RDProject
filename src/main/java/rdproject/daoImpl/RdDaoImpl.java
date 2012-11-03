@@ -10,8 +10,6 @@ public class RdDaoImpl implements RdDao
 	@Override
 	public void addDrug() 
 	{
-		String hql = "select blah from table blah1 ";
-		// TODO Auto-generated method stub
 		
 	}
 

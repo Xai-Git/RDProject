@@ -6,6 +6,7 @@
              version="1.0">
     
     <persistence-unit name="RDProject" transaction-type="RESOURCE_LOCAL">
+        <class>rdproject.model.User</class>
         <exclude-unlisted-classes/>
     </persistence-unit>
     

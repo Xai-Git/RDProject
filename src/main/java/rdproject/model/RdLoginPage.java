@@ -7,54 +7,31 @@ package rdproject.model;
  */
 public class RdLoginPage 
 {
-	/**
-	 * Default Constructor
-	 */
-	public RdLoginPage() {}
+	private String username;
+	private String password;
 	
-	/**
-	 * 
-	 * @param user
-	 * @param pw
-	 * 
-	 * Constructor
-	 */
-	public RdLoginPage(Long user, Long pw) {
-		super();
-		this.user = user;
-		this.pw = pw;
+	public RdLoginPage()
+	{
 	}
-	
-	/**
-	 * Getters and setters
-	 */
-	public Long getUser() {
-		return user;
+	public String getUsername()
+	{
+		return username;
 	}
-
-	public void setUser(Long user) {
-		this.user = user;
+	public void setUsername(String username)
+	{
+		this.username = username;
 	}
-
-	public Long getPw() {
-		return pw;
+	public String getPassword()
+	{
+		return password;
 	}
-
-	public void setPw(Long pw) {
-		this.pw = pw;
+	public void setPassword(String password)
+	{
+		this.password = password;
 	}
-
-	/**
-	 * generate user to string and pw to string
-	 */
 	@Override
-	public String toString() {
-		return "RdLoginPage [user=" + user + ", pw=" + pw + "]";
+	public String toString()
+	{
+		return "RdLoginPage [username=" + username + ", password=" + password + "]";
 	}
-
-	/**
-	 * private member data
-	 */
-	private Long user;
-	private Long pw;
 }

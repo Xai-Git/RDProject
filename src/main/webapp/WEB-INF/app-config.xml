@@ -15,17 +15,16 @@
       http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
-    <context:component-scan base-package="gov.tn.portal.handgun.admin" />
-    <context:component-scan base-package="gov.tn.portal.handgun.core.dao"/>
+    <context:component-scan base-package="rdproject" />
     
     <context:annotation-config />
 
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
-    <context:property-placeholder properties-ref="handgunProperties"/>
+    <context:property-placeholder properties-ref="rdprojectProperties"/>
 
     <!-- define the properties file to use -->
-  <util:properties id="handgunProperties" location="file:/home/jboss/appconf/handgun.properties" />
+    <util:properties id="rdprojectProperties" location="classpath:rdproject.properties" />
 
     <!--
         - Message source for this context, loaded from localized "messages_xx" files.
@@ -41,7 +40,7 @@
         <!-- Configures JPA -->
     <import resource="jpa-config.xml" />
     
-    <!-- Mailer configuration -->
-    <import resource="mail-config.xml"/>
+    <!-- Encryption configuration -->
+    <import resource="encrypt-config.xml"/>
 
 </beans>

@@ -20,42 +20,6 @@
 
     <!-- Configures Handler Interceptors -->
     <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/dashboard"/>
-            <mvc:mapping path="/school"/>
-            <mvc:mapping path="/accounts/**"/>
-            <mvc:mapping path="/instructor"/>
-            <mvc:mapping path="/dateoverride/**"/>
-            <mvc:mapping path="/pending"/>
-            <mvc:mapping path="/applicant-search"/>
-            <mvc:mapping path="/applicant-results"/>
-            <mvc:mapping path="/applicant/**"/>
-            <bean class="rdproject.interceptor.SessionCheckInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/applicant/permit"/>
-            <mvc:mapping path="/applicant/correspondence"/>
-            <mvc:mapping path="/applicant/application"/>
-            <mvc:mapping path="/applicant/school"/>
-            <mvc:mapping path="/applicant/exemptions"/>
-            <mvc:mapping path="/applicant/sheriff"/>
-            <mvc:mapping path="/applicant/namesearch"/>
-            <mvc:mapping path="/applicant/fingerprint"/>
-            <mvc:mapping path="/applicant/image"/>
-            <bean class="rdproject.interceptors.RdLoginInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/applicant/permit"/>
-            <mvc:mapping path="/applicant/correspondence"/>
-            <mvc:mapping path="/applicant/application"/>
-            <mvc:mapping path="/applicant/school"/>
-            <mvc:mapping path="/applicant/exemptions"/>
-            <mvc:mapping path="/applicant/sheriff"/>
-            <mvc:mapping path="/applicant/namesearch"/>
-            <mvc:mapping path="/applicant/fingerprint"/>
-            <mvc:mapping path="/applicant/image"/>
-            <bean class="rdproject.interceptor.RdDashboardInterceptor"/>
-        </mvc:interceptor>
     </mvc:interceptors>
     
     <!--

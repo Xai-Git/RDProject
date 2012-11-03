@@ -1,35 +1,64 @@
 package rdproject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ * 
+ * @author Samuel Aquino
+ *
+ */
+@Entity
+@Table(name="User")
 public class User 
 {
-	private String orgName;
-	private String orgAddr1;
-	private String orgAddr2;
-	private String orgCity;
-	private String orgZip;
-	private String orgWeb;
-	private String orgPhone;
-	private String orgFax;
-	private String orgEmail;
-	private String dirTitle;
-	private String dirFname;
-	private String dirMname;
-	private String dirLname;
-	private String dirSuffix;
-	private String dirPhone;
-	private String dirExt;
-	private String dirFax;
-	private String dirEmail;
-	private String conTitle;
-	private String conFname;
-	private String conMname;
-	private String conLname;
-	private String conExt;
-	private String conFax;
-	private String conEmail;
-	private Integer flag1;
-	private Integer flag2;
-	private Integer flag3;
-	private Integer OrgId;
-	private String Username;
+	private Integer id;
+	private String username;
+	private String password;
+	private String role;
+	
+	public User()
+	{
+	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer getId()
+	{
+		return id;
+	}
+	public void setId(Integer id)
+	{
+		this.id = id;
+	}
+	@Column(name="username")
+	public String getUsername()
+	{
+		return username;
+	}
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+	@Column(name="password")
+	public String getPassword()
+	{
+		return password;
+	}
+	public void setPassword(String password)
+	{
+		this.password = password;
+	}
+	@Column(name="role")
+	public String getRole()
+	{
+		return role;
+	}
+	public void setRole(String role)
+	{
+		this.role = role;
+	}
 }

@@ -7,56 +7,30 @@ package rdproject.form;
  */
 public class RdLoginForm 
 {
-	/**
-	 * Default Constructor
-	 */
-	public RdLoginForm() {}
-	
-	/**
-	 * 
-	 * @param user
-	 * @param pw
-	 * 
-	 * Constructor
-	 */
-	public RdLoginForm(Long user, Long pw) {
-		super();
-		this.user = user;
-		this.pw = pw;
+	private String username;
+	private String password;
+	public RdLoginForm()
+	{
 	}
-	
-	/**
-	 * Getters and setters
-	 */
-	public Long getUser() {
-		return user;
+	public String getUsername()
+	{
+		return username;
 	}
-
-	public void setUser(Long user) {
-		this.user = user;
+	public void setUsername(String username)
+	{
+		this.username = username;
 	}
-
-	public Long getPw() {
-		return pw;
+	public String getPassword()
+	{
+		return password;
 	}
-
-	public void setPw(Long pw) {
-		this.pw = pw;
+	public void setPassword(String password)
+	{
+		this.password = password;
 	}
-
-	/**
-	 * generate user to string and pw to string
-	 */
 	@Override
-	public String toString() {
-		return "RdLoginForm [user=" + user + ", pw=" + pw + "]";
+	public String toString()
+	{
+		return "RdLoginForm [username=" + username + ", password=" + password + "]";
 	}
-
-
-
-	/**
-	 * private member data
-	 */
-	private Long user;
-	private Long pw;
 }
