@@ -6,12 +6,12 @@ package rdproject.model;
  *
  * This is the model used for the drugTable in the database.
  */
-public class RdAddDrugPage 
+public class Drug 
 {
 	/**
 	 * Default Constructor
 	 */
-	public RdAddDrugPage(){}
+	public Drug(){}
 	
 	/**
 	 * 
@@ -36,7 +36,7 @@ public class RdAddDrugPage
 	 * @param sNotes
 	 * Constructor with values
 	 */
-	public RdAddDrugPage(String drugGName, String drugTName, String drugFocus,
+	public Drug(String drugGName, String drugTName, String drugFocus,
 			String routeAdmin, String reasonAdmin, Double doseWPVValue,
 			String doseWPVUnit, Double concWValue, String concWUnit,
 			Double concVValue, String concVUnit, String methodAdmin,

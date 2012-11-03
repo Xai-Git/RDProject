@@ -1,6 +1,6 @@
 package rdproject.model;
 
-public class RdOrgPage 
+public class User 
 {
 	private String orgName;
 	private String orgAddr1;

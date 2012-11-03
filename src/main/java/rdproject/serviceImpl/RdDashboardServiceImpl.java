@@ -1,8 +1,8 @@
 package rdproject.serviceImpl;
 
-import rdproject.model.RdAddDrugPage;
+import rdproject.dao.RdDao;
+import rdproject.model.Drug;
 import rdproject.service.RdDashboardService;
-import rdproject.dao.*;
 
 /**
  * 
@@ -42,7 +42,7 @@ public class RdDashboardServiceImpl implements RdDashboardService {
 	}
 
 	@Override
-	public RdAddDrugPage searchDrug(String Drug)
+	public Drug searchDrug(String Drug)
 	{
 		// TODO Auto-generated method stub
 		return null;

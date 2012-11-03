@@ -1,6 +1,6 @@
 package rdproject.service;
 
-import rdproject.model.RdAddDrugPage;
+import rdproject.model.Drug;
 
 /**
  * 
@@ -11,6 +11,6 @@ public interface RdDashboardService
 {
 	public void deleteDrug();
 	public void addDrug();
-	public RdAddDrugPage searchDrug(String Drug);
+	public Drug searchDrug(String Drug);
 	public Double calcDrugDose();
 }
