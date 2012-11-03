@@ -28,7 +28,7 @@ public class RdOrgPage
 	private String conFax;
 	private String conEmail;
 	private Integer flag1;
-	private Interger flag2;
+	private Integer flag2;
 	private Integer flag3;
 	private Integer OrgId;
 	private String Username;
