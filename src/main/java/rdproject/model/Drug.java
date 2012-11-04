@@ -14,7 +14,7 @@ public class Drug
 	public Drug(){}
 	
 	/**
-	 * 
+	 * Constructor with all private member data
 	 * @param drugGName
 	 * @param drugTName
 	 * @param drugFocus
@@ -34,7 +34,7 @@ public class Drug
 	 * @param maxTTLDose
 	 * @param maxWDisplay
 	 * @param sNotes
-	 * Constructor with values
+	 * @param id
 	 */
 	public Drug(String drugGName, String drugTName, String drugFocus,
 			String routeAdmin, String reasonAdmin, Double doseWPVValue,
@@ -42,7 +42,7 @@ public class Drug
 			Double concVValue, String concVUnit, String methodAdmin,
 			Double minSDWValue, String minSDWUnit, Double maxSDWValue,
 			String maxSDWUnit, String maxTTLDose, Double maxWDisplay,
-			String sNotes) {
+			String sNotes, Integer id) {
 		super();
 		this.drugGName = drugGName;
 		this.drugTName = drugTName;
@@ -63,8 +63,11 @@ public class Drug
 		this.maxTTLDose = maxTTLDose;
 		this.maxWDisplay = maxWDisplay;
 		this.sNotes = sNotes;
+		this.id = id;
 	}
-	
+
+
+
 	/**
 	 * Getters and Setters
 	 * @return
@@ -222,22 +225,30 @@ public class Drug
 		this.sNotes = sNotes;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	/**
 	 * To string function
 	 */
 	@Override
 	public String toString() {
-		return "RDAddDrugPage [drugGName=" + drugGName + ", drugTName="
-				+ drugTName + ", drugFocus=" + drugFocus + ", routeAdmin="
-				+ routeAdmin + ", reasonAdmin=" + reasonAdmin
-				+ ", doseWPVValue=" + doseWPVValue + ", doseWPVUnit="
-				+ doseWPVUnit + ", concWValue=" + concWValue + ", concWUnit="
-				+ concWUnit + ", concVValue=" + concVValue + ", concVUnit="
-				+ concVUnit + ", methodAdmin=" + methodAdmin + ", minSDWValue="
+		return "Drug [drugGName=" + drugGName + ", drugTName=" + drugTName
+				+ ", drugFocus=" + drugFocus + ", routeAdmin=" + routeAdmin
+				+ ", reasonAdmin=" + reasonAdmin + ", doseWPVValue="
+				+ doseWPVValue + ", doseWPVUnit=" + doseWPVUnit
+				+ ", concWValue=" + concWValue + ", concWUnit=" + concWUnit
+				+ ", concVValue=" + concVValue + ", concVUnit=" + concVUnit
+				+ ", methodAdmin=" + methodAdmin + ", minSDWValue="
 				+ minSDWValue + ", minSDWUnit=" + minSDWUnit + ", maxSDWValue="
 				+ maxSDWValue + ", maxSDWUnit=" + maxSDWUnit + ", maxTTLDose="
 				+ maxTTLDose + ", maxWDisplay=" + maxWDisplay + ", sNotes="
-				+ sNotes + "]";
+				+ sNotes + ", id=" + id + "]";
 	}
 
 	/**
@@ -262,5 +273,6 @@ public class Drug
 	private String maxTTLDose;
 	private Double maxWDisplay;
 	private String sNotes;
+	private Integer id;
 	
 }

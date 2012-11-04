@@ -9,8 +9,8 @@ import rdproject.model.Drug;
  */
 public interface RdDashboardService 
 {
-	public void deleteDrug();
-	public void addDrug();
-	public Drug searchDrug(String Drug);
-	public Double calcDrugDose();
+	public void deleteDrug(Drug aDrug);
+	public void saveDrug(Drug aDrug);
+	public Drug searchDrug(Drug aDrug);
+	public Double calcDrugDose(Drug aDrug);
 }

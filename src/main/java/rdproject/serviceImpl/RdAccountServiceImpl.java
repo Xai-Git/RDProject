@@ -3,6 +3,7 @@ package rdproject.serviceImpl;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 
 import rdproject.dao.RdUserDao;
@@ -14,7 +15,8 @@ import rdproject.service.RdSecurityService;
  * @author Samuel Aquino
  * 
  */
-public class RdSecurityServiceImpl implements RdSecurityService
+@Service
+public class RdAccountServiceImpl implements RdSecurityService
 {
 	
 	@Autowired
