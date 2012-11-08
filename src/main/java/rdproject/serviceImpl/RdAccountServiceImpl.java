@@ -4,6 +4,7 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 
 import rdproject.dao.RdUserDao;
@@ -52,6 +53,7 @@ public class RdAccountServiceImpl implements RdAccountService
 	}
 
 	@Override
+	@Transactional
 	public void createUserAcct(RdCreateAccountForm form, Errors errors) 
 	{
 		/** Make new account code*/
