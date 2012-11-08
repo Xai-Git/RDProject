@@ -11,30 +11,48 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import rdproject.form.RdCreateAccountForm;
 import rdproject.service.RdAccountService;
+import rdproject.validator.RdAccountValidator;
 
 @Controller
 @RequestMapping("/createaccount")
-public class RdCreateAccountController 
+public class RdCreateAccountController
 {
 	@Autowired
-	private RdAccountService securityService;
-	
+	private RdAccountService accountService;
+
 	/**
 	 * Return confirmation page on success of account creation
+	 * 
 	 * @param form
 	 * @param result
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
-	public String submit(@ModelAttribute("createAcctForm") RdCreateAccountForm form, BindingResult result,
-			HttpServletRequest request)
+	public String submit(@ModelAttribute("createAcctForm") RdCreateAccountForm form, BindingResult result, HttpServletRequest request)
 	{
-		return "redirect:/confirmAccount";
+		new RdAccountValidator().validate(form, result);
+		if (result.hasErrors())
+		{
+			return "createaccount";
+		}
+		else
+		{
+			accountService.createUserAcct(form, result);
+			if(result.hasErrors())
+			{
+				return "createaccount";
+			}
+			else
+			{
+			    return "redirect:/confirmAccount";
+			}
+		}
 	}
-	
+
 	/**
 	 * Return view of createAccount page
+	 * 
 	 * @param form
 	 * @return
 	 */

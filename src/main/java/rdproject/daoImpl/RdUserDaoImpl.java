@@ -46,7 +46,14 @@ public class RdUserDaoImpl implements RdUserDao
 	@Override
 	public void saveUser(User user) throws DataAccessException 
 	{
-		entityManager.merge(user);
+		if(user.getId() == null)
+		{
+			entityManager.persist(user);
+		}
+		else
+		{
+			user = entityManager.merge(user);
+		}
 	}
 
 }

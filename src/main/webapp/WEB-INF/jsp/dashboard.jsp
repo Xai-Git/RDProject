@@ -12,7 +12,7 @@
 
 <!-- Le styles -->
 <link
-	href="css/bootstrap.css"
+	href="../css/bootstrap.min.css"
 	rel="stylesheet">
 <style type="text/css">
 body {
@@ -25,7 +25,7 @@ body {
 }
 </style>
 <link
-	href="css/bootstrap-responsive.css"
+	href="../css/bootstrap-responsive.min.css"
 	rel="stylesheet">
 
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

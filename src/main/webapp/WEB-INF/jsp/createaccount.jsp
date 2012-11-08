@@ -11,14 +11,14 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <style type = "text/css">
       body {
         padding-top: 60px;S
         padding-bottom: 40px;
       }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -57,13 +57,19 @@
     <div class="container">
     <h1>Creating Page!</h1>
     <form:form modelAttribute="createAcctForm" >
+    <div class="text-error">
+        <form:errors/>
+    </div>
       <legend>Account Creation</legend>
       <label>username</label>
       <form:input path="username" placeholder="username"/>
+      <form:errors path="username" cssClass="text-error"/>
       <label>Password</label>
       <form:password path="password" placeholder="password"/>
+      <form:errors path="password" cssClass="text-error"/>
       <label>RePassword</label>
       <form:password path="rePassword" placeholder="retype password"/>
+      <form:errors path="rePassword" cssClass="text-error"/>
       <button type="submit" class="btn">Submit</button>
     </form:form>
     </div> <!-- /container -->

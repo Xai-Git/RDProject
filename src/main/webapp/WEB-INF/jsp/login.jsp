@@ -12,7 +12,7 @@
 
 <!-- Le styles -->
 <link
-	href="css/bootstrap.css"
+	href="../css/bootstrap.min.css"
 	rel="stylesheet">
 <style type="text/css">
 body {
@@ -21,7 +21,7 @@ body {
 }
 </style>
 <link
-	href="css/bootstrap-responsive.css"
+	href="../css/bootstrap-responsive.min.css"
 	rel="stylesheet">
 
 <!--  HTML5 shim for IE6-8 support of HTML5 elements -->
@@ -50,9 +50,10 @@ body {
 						<li><a href="">About</a></li>
 						<li><a href="">Contact</a></li>
 						<form:form modelAttribute="loginForm" class="navbar-form pull-right">
+						    <form:errors cssClass="text-error"/>
 							<form:input class="span2" path="username" placeholder="Username"/>
 							<form:errors path="username" cssClass="text-error"/>
-							<form:input class="span2" path="password" placeholder="Password"/>
+							<form:password class="span2" path="password" placeholder="Password"/>
 							<form:errors path="password" cssClass="text-error"/>
 							<button type="submit" class="btn btn-small btn-primary">Login</button>
 							<a href="/rdproject-app/createaccount">Create Account</a>

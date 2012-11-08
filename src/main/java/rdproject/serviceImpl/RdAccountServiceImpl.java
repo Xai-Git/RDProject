@@ -34,7 +34,16 @@ public class RdAccountServiceImpl implements RdAccountService
 	@Override
 	public User authenticate(String username, String password, Errors errors)
 	{
-		User user = userDao.getUser(username);
+		User user;
+		
+		try
+		{
+		    user = userDao.getUser(username);
+		}
+		catch(Exception exc)
+		{
+			user = null;
+		}
 		
 		if(user != null)
 		{
@@ -57,26 +66,22 @@ public class RdAccountServiceImpl implements RdAccountService
 	public void createUserAcct(RdCreateAccountForm form, Errors errors) 
 	{
 		/** Make new account code*/
-		User user = new User();
-		if (!checkUsername(form,errors))
+		if (checkUsername(form,errors))
 		{
-			user = null;
 			errors.reject("errors.dupeuser", "errors.dupeuser");
 		}
-		else
+		if (!form.getPassword().equals(form.getRePassword()))
 		{
-			user.setUsername(form.getUsername());
-		}
-		if (form.getPassword() != form.getRePassword())
-		{
-			user = null;
 			errors.reject("errors.repassword", "errors.repassword");
 		}
-		else
+		
+		if(!errors.hasErrors())
 		{
+			User user = new User();
+			user.setUsername(form.getUsername());
 			user.setPassword(encryptor.encryptPassword(form.getPassword()));
+		    userDao.saveUser(user);
 		}
-		userDao.saveUser(user);
 	}
 
 	/**
@@ -88,8 +93,19 @@ public class RdAccountServiceImpl implements RdAccountService
 	public Boolean checkUsername(RdCreateAccountForm form, Errors errors) 
 	{
 		Boolean bool = false;
+		
+		User user;
+		
+		try
+		{
+			user = userDao.getUser(form.getUsername());
+		}
+		catch(Exception exc)
+		{
+			user = null;
+		}
 			
-		if (userDao.getUser(form.getUsername()) != null)
+		if (user != null)
 		{
 			bool = true;			
 		}
