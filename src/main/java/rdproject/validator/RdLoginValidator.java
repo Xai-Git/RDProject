@@ -7,10 +7,7 @@ import org.springframework.validation.Validator;
 import rdproject.form.RdLoginForm;
 
 /**
- * 
  * @author Samuel Aquino
- * 
- *
  */
 public class RdLoginValidator implements Validator 
 {

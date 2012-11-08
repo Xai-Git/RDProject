@@ -40,4 +40,13 @@ public class RdUserDaoImpl implements RdUserDao
 		return (User)query.getSingleResult();
 	}
 
+	/**
+	 * Saves the new created user
+	 */
+	@Override
+	public void saveUser(User user) throws DataAccessException 
+	{
+		entityManager.merge(user);
+	}
+
 }

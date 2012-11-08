@@ -1,7 +1,6 @@
 package rdproject.controller;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import rdproject.form.RdLoginForm;
 import rdproject.model.User;
-import rdproject.service.RdSecurityService;
+import rdproject.service.RdAccountService;
 import rdproject.validator.RdLoginValidator;
 
 @Controller
@@ -20,7 +19,7 @@ import rdproject.validator.RdLoginValidator;
 public class RdLoginController 
 {
 	@Autowired
-	private RdSecurityService securityService;
+	private RdAccountService securityService;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("loginForm") RdLoginForm form, BindingResult result,

@@ -19,8 +19,6 @@
     <mvc:view-controller path="/" view-name="login"/>-->
 
     <!-- Configures Handler Interceptors -->
-    <mvc:interceptors>
-    </mvc:interceptors>
     
     <!--
         - This bean configures the 'prefix' and 'suffix' properties of 

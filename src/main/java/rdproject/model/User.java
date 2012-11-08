@@ -13,10 +13,10 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="User")
+@Table(name="USERS")
 public class User 
 {
-	private Integer id;
+	private Long id;
 	private String username;
 	private String password;
 	private String role;
@@ -26,11 +26,11 @@ public class User
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getId()
+	public Long getId()
 	{
 		return id;
 	}
-	public void setId(Integer id)
+	public void setId(Long id)
 	{
 		this.id = id;
 	}

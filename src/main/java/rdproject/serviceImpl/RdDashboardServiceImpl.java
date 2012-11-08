@@ -1,5 +1,6 @@
 package rdproject.serviceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rdproject.dao.RdDao;
@@ -14,6 +15,7 @@ import rdproject.service.RdDashboardService;
 @Service
 public class RdDashboardServiceImpl implements RdDashboardService {
 
+	@Autowired
 	private RdDao aDao;
 	
 	/**

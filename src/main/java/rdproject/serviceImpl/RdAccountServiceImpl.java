@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 
 import rdproject.dao.RdUserDao;
+import rdproject.form.RdCreateAccountForm;
 import rdproject.model.User;
-import rdproject.service.RdSecurityService;
+import rdproject.service.RdAccountService;
 
 /**
  * 
@@ -16,7 +17,7 @@ import rdproject.service.RdSecurityService;
  * 
  */
 @Service
-public class RdAccountServiceImpl implements RdSecurityService
+public class RdAccountServiceImpl implements RdAccountService
 {
 	
 	@Autowired
@@ -50,4 +51,50 @@ public class RdAccountServiceImpl implements RdSecurityService
 		return user;
 	}
 
+	@Override
+	public void createUserAcct(RdCreateAccountForm form, Errors errors) 
+	{
+		/** Make new account code*/
+		User user = new User();
+		if (!checkUsername(form,errors))
+		{
+			user = null;
+			errors.reject("errors.dupeuser", "errors.dupeuser");
+		}
+		else
+		{
+			user.setUsername(form.getUsername());
+		}
+		if (form.getPassword() != form.getRePassword())
+		{
+			user = null;
+			errors.reject("errors.repassword", "errors.repassword");
+		}
+		else
+		{
+			user.setPassword(encryptor.encryptPassword(form.getPassword()));
+		}
+		userDao.saveUser(user);
+	}
+
+	/**
+	 * try to search for a result
+	 * getSingleResult() in userDao.getUser()
+	 * catches an exception if no result is found
+	 */
+	@Override
+	public Boolean checkUsername(RdCreateAccountForm form, Errors errors) 
+	{
+		Boolean bool = false;
+			
+		if (userDao.getUser(form.getUsername()) != null)
+		{
+			bool = true;			
+		}
+		else
+		{
+			bool = false;
+		}
+		return bool;
+	}
 }

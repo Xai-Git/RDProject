@@ -1,11 +1,20 @@
 package rdproject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * @author Samuel Aquino
  *
  * This is the model used for the drugTable in the database.
  */
+@Entity
+@Table(name="DRUGS")
 public class Drug 
 {
 	/**
@@ -42,7 +51,7 @@ public class Drug
 			Double concVValue, String concVUnit, String methodAdmin,
 			Double minSDWValue, String minSDWUnit, Double maxSDWValue,
 			String maxSDWUnit, String maxTTLDose, Double maxWDisplay,
-			String sNotes, Integer id) {
+			String sNotes, Long id) {
 		super();
 		this.drugGName = drugGName;
 		this.drugTName = drugTName;
@@ -72,7 +81,17 @@ public class Drug
 	 * Getters and Setters
 	 * @return
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
+	@Column(name="drug_g_name")
 	public String getDrugGName() {
 		return drugGName;
 	}
@@ -81,6 +100,7 @@ public class Drug
 		this.drugGName = drugGName;
 	}
 
+	@Column(name="drug_t_name")
 	public String getDrugTName() {
 		return drugTName;
 	}
@@ -88,7 +108,8 @@ public class Drug
 	public void setDrugTName(String drugTName) {
 		this.drugTName = drugTName;
 	}
-
+	
+	@Column(name="drug_focus")
 	public String getDrugFocus() {
 		return drugFocus;
 	}
@@ -96,7 +117,8 @@ public class Drug
 	public void setDrugFocus(String drugFocus) {
 		this.drugFocus = drugFocus;
 	}
-
+	
+	@Column(name="route_admin")
 	public String getRouteAdmin() {
 		return routeAdmin;
 	}
@@ -105,6 +127,7 @@ public class Drug
 		this.routeAdmin = routeAdmin;
 	}
 
+	@Column(name="reason_admin")
 	public String getReasonAdmin() {
 		return reasonAdmin;
 	}
@@ -113,6 +136,7 @@ public class Drug
 		this.reasonAdmin = reasonAdmin;
 	}
 
+	@Column(name="dose_wpv_value")
 	public Double getDoseWPVValue() {
 		return doseWPVValue;
 	}
@@ -121,6 +145,7 @@ public class Drug
 		this.doseWPVValue = doseWPVValue;
 	}
 
+	@Column(name="dose_wpv_unit")
 	public String getDoseWPVUnit() {
 		return doseWPVUnit;
 	}
@@ -129,6 +154,7 @@ public class Drug
 		this.doseWPVUnit = doseWPVUnit;
 	}
 
+	@Column(name="conc_w_value")
 	public Double getConcWValue() {
 		return concWValue;
 	}
@@ -137,6 +163,7 @@ public class Drug
 		this.concWValue = concWValue;
 	}
 
+	@Column(name="conc_w_unit")
 	public String getConcWUnit() {
 		return concWUnit;
 	}
@@ -145,6 +172,7 @@ public class Drug
 		this.concWUnit = concWUnit;
 	}
 
+	@Column(name = "conc_v_value")
 	public Double getConcVValue() {
 		return concVValue;
 	}
@@ -153,6 +181,7 @@ public class Drug
 		this.concVValue = concVValue;
 	}
 
+	@Column(name = "conc_v_unit")
 	public String getConcVUnit() {
 		return concVUnit;
 	}
@@ -161,6 +190,7 @@ public class Drug
 		this.concVUnit = concVUnit;
 	}
 
+	@Column(name = "method_admin")
 	public String getMethodAdmin() {
 		return methodAdmin;
 	}
@@ -169,6 +199,7 @@ public class Drug
 		this.methodAdmin = methodAdmin;
 	}
 
+	@Column(name = "min_sdw_value")
 	public Double getMinSDWValue() {
 		return minSDWValue;
 	}
@@ -177,6 +208,7 @@ public class Drug
 		this.minSDWValue = minSDWValue;
 	}
 
+	@Column(name = "min_sd_unit")
 	public String getMinSDWUnit() {
 		return minSDWUnit;
 	}
@@ -185,6 +217,7 @@ public class Drug
 		this.minSDWUnit = minSDWUnit;
 	}
 
+	@Column(name = "max_sdw_value")
 	public Double getMaxSDWValue() {
 		return maxSDWValue;
 	}
@@ -193,6 +226,7 @@ public class Drug
 		this.maxSDWValue = maxSDWValue;
 	}
 
+	@Column(name = "max_sdw_unit")
 	public String getMaxSDWUnit() {
 		return maxSDWUnit;
 	}
@@ -201,6 +235,7 @@ public class Drug
 		this.maxSDWUnit = maxSDWUnit;
 	}
 
+	@Column(name = "max_tot_dose")
 	public String getMaxTTLDose() {
 		return maxTTLDose;
 	}
@@ -209,6 +244,7 @@ public class Drug
 		this.maxTTLDose = maxTTLDose;
 	}
 
+	@Column(name = "max_w_display")
 	public Double getMaxWDisplay() {
 		return maxWDisplay;
 	}
@@ -217,6 +253,7 @@ public class Drug
 		this.maxWDisplay = maxWDisplay;
 	}
 
+	@Column(name="s_notes")
 	public String getsNotes() {
 		return sNotes;
 	}
@@ -225,13 +262,6 @@ public class Drug
 		this.sNotes = sNotes;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	/**
 	 * To string function
@@ -273,6 +303,6 @@ public class Drug
 	private String maxTTLDose;
 	private Double maxWDisplay;
 	private String sNotes;
-	private Integer id;
+	private Long id;
 	
 }
