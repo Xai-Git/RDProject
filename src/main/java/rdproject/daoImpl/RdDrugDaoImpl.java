@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import rdproject.dao.RdDrugDao;
 import rdproject.model.Drug;
+import rdproject.model.User;
 
 @Repository
 public class RdDrugDaoImpl implements RdDrugDao
@@ -68,6 +69,12 @@ public class RdDrugDaoImpl implements RdDrugDao
 	public Double calcDrugDose(Drug aDrug) 
 	{
 		// Still unsure of the calculations
+		return null;
+	}
+
+	@Override
+	public Drug retrieveDrugList(User aUser) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
