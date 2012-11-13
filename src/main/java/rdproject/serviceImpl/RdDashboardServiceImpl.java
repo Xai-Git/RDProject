@@ -3,7 +3,7 @@ package rdproject.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import rdproject.dao.RdDao;
+import rdproject.dao.RdDrugDao;
 import rdproject.model.Drug;
 import rdproject.service.RdDashboardService;
 
@@ -16,7 +16,7 @@ import rdproject.service.RdDashboardService;
 public class RdDashboardServiceImpl implements RdDashboardService {
 
 	@Autowired
-	private RdDao aDao;
+	private RdDrugDao aDao;
 	
 	/**
 	 * Deletes a drug from the database by calling RdDao's deleteDrug function.

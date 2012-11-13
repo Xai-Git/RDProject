@@ -75,7 +75,7 @@ body {
 				<div class="well sidebar-nav">
 					<ul class="nav nav-list">
 						<li class="nav-header">Dashboard Actions</li>
-						<li><a href="creataccount.jsp">Create a Page</a></li>
+						<li><a href="/addDrug">Add a Drug</a></li>
 						<li><a href="#">Delete a Page</a></li>
 						<li><a href="#">Edit a Page</a></li>
 						<li><a href="#">Print your booklet!</a></li>

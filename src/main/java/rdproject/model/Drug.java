@@ -35,6 +35,8 @@ public class Drug
 	 * @param concWUnit
 	 * @param concVValue
 	 * @param concVUnit
+	 * @param fluidEVVAlue
+	 * @param fluidEWVUnit
 	 * @param methodAdmin
 	 * @param minSDWValue
 	 * @param minSDWUnit
@@ -48,10 +50,10 @@ public class Drug
 	public Drug(String drugGName, String drugTName, String drugFocus,
 			String routeAdmin, String reasonAdmin, Double doseWPVValue,
 			String doseWPVUnit, Double concWValue, String concWUnit,
-			Double concVValue, String concVUnit, String methodAdmin,
-			Double minSDWValue, String minSDWUnit, Double maxSDWValue,
-			String maxSDWUnit, String maxTTLDose, Double maxWDisplay,
-			String sNotes, Long id) {
+			Double concVValue, String concVUnit, Double fluidEVValue,
+			String fluidEWVUnit, String methodAdmin, Double minSDWValue,
+			String minSDWUnit, Double maxSDWValue, String maxSDWUnit,
+			String maxTTLDose, Double maxWDisplay, String sNotes, Long id) {
 		super();
 		this.drugGName = drugGName;
 		this.drugTName = drugTName;
@@ -64,6 +66,8 @@ public class Drug
 		this.concWUnit = concWUnit;
 		this.concVValue = concVValue;
 		this.concVUnit = concVUnit;
+		this.fluidEVValue = fluidEVValue;
+		this.fluidEWVUnit = fluidEWVUnit;
 		this.methodAdmin = methodAdmin;
 		this.minSDWValue = minSDWValue;
 		this.minSDWUnit = minSDWUnit;
@@ -74,6 +78,7 @@ public class Drug
 		this.sNotes = sNotes;
 		this.id = id;
 	}
+
 
 
 
@@ -189,6 +194,24 @@ public class Drug
 	public void setConcVUnit(String concVUnit) {
 		this.concVUnit = concVUnit;
 	}
+	
+	@Column (name = "fluid_ev_value")
+	public Double getFluidEVValue() {
+		return fluidEVValue;
+	}
+
+	public void setFluidEVValue(Double fluidEVValue) {
+		this.fluidEVValue = fluidEVValue;
+	}
+
+	@Column(name = "fluid_ewv_unit")
+	public String getFluidEWVUnit() {
+		return fluidEWVUnit;
+	}
+
+	public void setFluidEWVUnit(String fluidEWVUnit) {
+		this.fluidEWVUnit = fluidEWVUnit;
+	}
 
 	@Column(name = "method_admin")
 	public String getMethodAdmin() {
@@ -208,7 +231,7 @@ public class Drug
 		this.minSDWValue = minSDWValue;
 	}
 
-	@Column(name = "min_sd_unit")
+	@Column(name = "min_sdw_unit")
 	public String getMinSDWUnit() {
 		return minSDWUnit;
 	}
@@ -274,13 +297,14 @@ public class Drug
 				+ doseWPVValue + ", doseWPVUnit=" + doseWPVUnit
 				+ ", concWValue=" + concWValue + ", concWUnit=" + concWUnit
 				+ ", concVValue=" + concVValue + ", concVUnit=" + concVUnit
-				+ ", methodAdmin=" + methodAdmin + ", minSDWValue="
-				+ minSDWValue + ", minSDWUnit=" + minSDWUnit + ", maxSDWValue="
-				+ maxSDWValue + ", maxSDWUnit=" + maxSDWUnit + ", maxTTLDose="
-				+ maxTTLDose + ", maxWDisplay=" + maxWDisplay + ", sNotes="
-				+ sNotes + ", id=" + id + "]";
+				+ ", fluidEVVAlue=" + fluidEVValue + ", fluidEWVUnit="
+				+ fluidEWVUnit + ", methodAdmin=" + methodAdmin
+				+ ", minSDWValue=" + minSDWValue + ", minSDWUnit=" + minSDWUnit
+				+ ", maxSDWValue=" + maxSDWValue + ", maxSDWUnit=" + maxSDWUnit
+				+ ", maxTTLDose=" + maxTTLDose + ", maxWDisplay=" + maxWDisplay
+				+ ", sNotes=" + sNotes + ", id=" + id + "]";
 	}
-
+	
 	/**
 	 * Private member data
 	 */
@@ -295,6 +319,8 @@ public class Drug
 	private String concWUnit;
 	private Double concVValue;
 	private String concVUnit;
+	private Double fluidEVValue;
+	private String fluidEWVUnit;
 	private String methodAdmin;
 	private Double minSDWValue;
 	private String minSDWUnit;

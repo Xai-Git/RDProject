@@ -23,10 +23,37 @@ public class RdDashboardMultiActionController
 		return "dashboard";
 	}
 	
+	/**
+	 * Handles request for account confirmation request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("confirmAccount")
 	public String handleCreateAccountSuccess() throws Exception
 	{
 		return "confirmAccount";
+	}
+	
+	/**
+	 * Handles request for organization information
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping ("editOrganization")
+	public String handleEditOrganizationInfo() throws Exception
+	{
+		return "editOrganization";
+	}
+	
+	/**
+	 * Handles request to add drug
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("addDrug")
+	public String handleAddDrug() throws Exception
+	{
+		return "addDrug";
 	}
 
 }
