@@ -30,10 +30,6 @@ public class User
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "USERDRUG",joinColumns = @JoinColumn(name = "id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "id", referencedColumnName = "id")
-    )
 	public Long getId()
 	{
 		return id;
