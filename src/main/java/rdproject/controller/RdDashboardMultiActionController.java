@@ -28,10 +28,10 @@ public class RdDashboardMultiActionController
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("confirmAccount")
+	@RequestMapping("confirmaccount")
 	public String handleCreateAccountSuccess() throws Exception
 	{
-		return "confirmAccount";
+		return "confirmaccount";
 	}
 	
 	/**
@@ -50,10 +50,10 @@ public class RdDashboardMultiActionController
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("addDrug")
+	@RequestMapping("drug")
 	public String handleAddDrug() throws Exception
 	{
-		return "addDrug";
+		return "drug";
 	}
 
 }

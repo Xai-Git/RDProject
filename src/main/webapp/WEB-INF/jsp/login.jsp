@@ -46,9 +46,7 @@ body {
 				<a class="brand" href="#">RightDose Login</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="">About</a></li>
-						<li><a href="">Contact</a></li>
+						<li class="active"><a href="http://www.rightdosefoundation.org/">Home</a></li>
 						<form:form modelAttribute="loginForm" class="navbar-form pull-right">
 						    <form:errors cssClass="text-error"/>
 							<form:input class="span2" path="username" placeholder="Username"/>
@@ -68,9 +66,6 @@ body {
 	<div class="container">
 		<div class="hero-unit">
 			<h1>The RightDose Foundation</h1>
-			<p>
-				<a class="btn btn-primary btn-large">Learn more &raquo;</a>
-			</p>
 		</div>
 
 		<hr>

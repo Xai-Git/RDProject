@@ -29,7 +29,6 @@ public class RdUserDaoImpl implements RdUserDao
     /**
      * Retrieve user by user name.
      */
-	@Override
 	public User getUser(String username) throws DataAccessException
 	{
 		String hql = "select u from User u where u.username = :username";
@@ -43,7 +42,6 @@ public class RdUserDaoImpl implements RdUserDao
 	/**
 	 * Saves the new created user
 	 */
-	@Override
 	public void saveUser(User user) throws DataAccessException 
 	{
 		if(user.getId() == null)

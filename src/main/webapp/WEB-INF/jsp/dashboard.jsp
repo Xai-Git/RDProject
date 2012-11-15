@@ -59,7 +59,7 @@ body {
 						Logged in as <a href="rdlogin.html" class="navbar-link">User</a>
 					</p>
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="http://www.rightdosefoundation.org/">Home</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
 					</ul>
@@ -75,7 +75,7 @@ body {
 				<div class="well sidebar-nav">
 					<ul class="nav nav-list">
 						<li class="nav-header">Dashboard Actions</li>
-						<li><a href="/addDrug">Add a Drug</a></li>
+						<li><a href="/rdproject-app/add">Add a Drug</a></li>
 						<li><a href="#">Delete a Page</a></li>
 						<li><a href="#">Edit a Page</a></li>
 						<li><a href="#">Print your booklet!</a></li>
@@ -88,9 +88,6 @@ body {
 				<div class="hero-unit">
 					<h1>Welcome Customer!</h1>
 					<p></p>
-					<p>
-						<a class="btn btn-primary btn-large">Learn more &raquo;</a>
-					</p>
 				</div>
 			</div>
 			<!--/span-->

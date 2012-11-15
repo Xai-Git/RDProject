@@ -31,7 +31,7 @@ public class RdAccountServiceImpl implements RdAccountService
 	/**
 	 * Authenticates a user.
 	 */
-	@Override
+
 	public User authenticate(String username, String password, Errors errors)
 	{
 		User user;
@@ -61,7 +61,7 @@ public class RdAccountServiceImpl implements RdAccountService
 		return user;
 	}
 
-	@Override
+	
 	@Transactional
 	public void createUserAcct(RdCreateAccountForm form, Errors errors) 
 	{
@@ -89,7 +89,6 @@ public class RdAccountServiceImpl implements RdAccountService
 	 * getSingleResult() in userDao.getUser()
 	 * catches an exception if no result is found
 	 */
-	@Override
 	public Boolean checkUsername(RdCreateAccountForm form, Errors errors) 
 	{
 		Boolean bool = false;

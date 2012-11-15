@@ -1,9 +1,12 @@
 package rdproject.daoImpl;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import rdproject.dao.RdDrugDao;
@@ -29,9 +32,8 @@ public class RdDrugDaoImpl implements RdDrugDao
 	 * if the Drugs id is not preset
 	 *   add the new drug
 	 *   else update the drug
-	 */
-	@Override
-	public void saveDrug(Drug aDrug) 
+	 */	
+	public void saveDrug(Drug aDrug) throws DataAccessException
 	{
 		if (aDrug.getId() !=  null)
 		{
@@ -46,8 +48,7 @@ public class RdDrugDaoImpl implements RdDrugDao
 	/**
 	 * removes the aDrug from database
 	 */
-	@Override
-	public void deleteDrug(Drug aDrug) 
+	public void deleteDrug(Drug aDrug) throws DataAccessException
 	{
 		entityManager.remove(aDrug);
 	}
@@ -56,7 +57,6 @@ public class RdDrugDaoImpl implements RdDrugDao
 	 * Search Database for drug with aDrug's id
 	 *   Return Drug object.
 	 */
-	@Override
 	public Drug searchDrug(Drug aDrug) 
 	{
 		String hql = "Select d from Drug d where d.id = : aDrugId";
@@ -65,17 +65,28 @@ public class RdDrugDaoImpl implements RdDrugDao
 		return (Drug)query.getSingleResult();	
 	}
 
-	@Override
 	public Double calcDrugDose(Drug aDrug) 
 	{
 		// Still unsure of the calculations
 		return null;
 	}
 
-	@Override
-	public Drug retrieveDrugList(User aUser) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Drug> retrieveDrugList(Long id) throws DataAccessException
+	{
+		String hql = "Select d from DRUG where d.user.id =: userId";
+		Query query = entityManager.createQuery(hql);
+		query.setParameter("userId", id);
+		@SuppressWarnings("unchecked")
+		List<Drug> d = (List<Drug>)query.getResultList();
+		return d;
+	}
+
+	public Drug getDrug(Long id) throws DataAccessException
+	{
+		String hql = "Select d from Drug d where d.id = : id";
+		Query query = entityManager.createQuery(hql);
+		query.setParameter("id", id);
+		return (Drug)query.getSingleResult();
 	}
 
 }

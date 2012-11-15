@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+
+
 
 /**
  * 
@@ -46,6 +50,7 @@ public class Drug
 	 * @param maxWDisplay
 	 * @param sNotes
 	 * @param id
+	 * @param user
 	 */
 	public Drug(String drugGName, String drugTName, String drugFocus,
 			String routeAdmin, String reasonAdmin, Double doseWPVValue,
@@ -53,7 +58,8 @@ public class Drug
 			Double concVValue, String concVUnit, Double fluidEVValue,
 			String fluidEWVUnit, String methodAdmin, Double minSDWValue,
 			String minSDWUnit, Double maxSDWValue, String maxSDWUnit,
-			String maxTTLDose, Double maxWDisplay, String sNotes, Long id) {
+			String maxTTLDose, Double maxWDisplay, String sNotes, Long id,
+			User user) {
 		super();
 		this.drugGName = drugGName;
 		this.drugTName = drugTName;
@@ -77,6 +83,7 @@ public class Drug
 		this.maxWDisplay = maxWDisplay;
 		this.sNotes = sNotes;
 		this.id = id;
+		this.user = user;
 	}
 
 
@@ -284,6 +291,16 @@ public class Drug
 	public void setsNotes(String sNotes) {
 		this.sNotes = sNotes;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user){
+		this.user = user;
+	}
 
 
 	/**
@@ -297,12 +314,12 @@ public class Drug
 				+ doseWPVValue + ", doseWPVUnit=" + doseWPVUnit
 				+ ", concWValue=" + concWValue + ", concWUnit=" + concWUnit
 				+ ", concVValue=" + concVValue + ", concVUnit=" + concVUnit
-				+ ", fluidEVVAlue=" + fluidEVValue + ", fluidEWVUnit="
+				+ ", fluidEVValue=" + fluidEVValue + ", fluidEWVUnit="
 				+ fluidEWVUnit + ", methodAdmin=" + methodAdmin
 				+ ", minSDWValue=" + minSDWValue + ", minSDWUnit=" + minSDWUnit
 				+ ", maxSDWValue=" + maxSDWValue + ", maxSDWUnit=" + maxSDWUnit
 				+ ", maxTTLDose=" + maxTTLDose + ", maxWDisplay=" + maxWDisplay
-				+ ", sNotes=" + sNotes + ", id=" + id + "]";
+				+ ", sNotes=" + sNotes + ", id=" + id + ", user=" + user + "]";
 	}
 	
 	/**
@@ -330,5 +347,6 @@ public class Drug
 	private Double maxWDisplay;
 	private String sNotes;
 	private Long id;
+	private User user;
 	
 }
