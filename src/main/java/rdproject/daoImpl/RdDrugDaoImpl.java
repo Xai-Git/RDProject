@@ -5,9 +5,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.util.WebUtils;
 
 import rdproject.dao.RdDrugDao;
 import rdproject.model.Drug;
@@ -59,7 +61,7 @@ public class RdDrugDaoImpl implements RdDrugDao
 	 */
 	public Drug searchDrug(Drug aDrug) 
 	{
-		String hql = "Select d from Drug d where d.id = : aDrugId";
+		String hql = "select d from Drug d where d.id = :aDrugId";
 		Query query = entityManager.createQuery(hql);
 		query.setParameter("aDrugId", aDrug.getId());
 		return (Drug)query.getSingleResult();	
@@ -73,7 +75,7 @@ public class RdDrugDaoImpl implements RdDrugDao
 
 	public List<Drug> retrieveDrugList(Long id) throws DataAccessException
 	{
-		String hql = "Select d from DRUG where d.user.id =: userId";
+		String hql = "select d from Drug d where d.user.id = :userId";
 		Query query = entityManager.createQuery(hql);
 		query.setParameter("userId", id);
 		@SuppressWarnings("unchecked")
@@ -83,7 +85,7 @@ public class RdDrugDaoImpl implements RdDrugDao
 
 	public Drug getDrug(Long id) throws DataAccessException
 	{
-		String hql = "Select d from Drug d where d.id = : id";
+		String hql = "select d from Drug d where d.id = :id";
 		Query query = entityManager.createQuery(hql);
 		query.setParameter("id", id);
 		return (Drug)query.getSingleResult();

@@ -30,10 +30,11 @@ public class RdDrugController
 		new RdDrugValidator().validate(drug,result);
 		if (result.hasErrors())
 		{
-			return "drug/add/{id}";
+			return "drug";
 		}
 		else
 		{
+			drugService.saveDrug(drug, request);
 			return"redirect:/dashboard";
 		}
 	}

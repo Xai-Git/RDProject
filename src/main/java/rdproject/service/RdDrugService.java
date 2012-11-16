@@ -14,7 +14,7 @@ import rdproject.model.User;
  */
 public interface RdDrugService
 {
-	public void deleteDrug(Drug aDrug);
+	public void deleteDrug(Long id);
 	public void saveDrug(Drug aDrug, HttpServletRequest request);
 	public Drug searchDrug(Drug aDrug);
 	public Double calcDrugDose(Drug aDrug);

@@ -45,7 +45,7 @@ public class RdCreateAccountController
 			}
 			else
 			{
-			    return "redirect:/confirmAccount";
+			    return "redirect:/confirmaccount";
 			}
 		}
 	}

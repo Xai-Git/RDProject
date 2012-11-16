@@ -28,8 +28,9 @@ public class RdDrugServiceImpl implements RdDrugService {
 	/**
 	 * Deletes a drug from the database by calling RdDrugDao's deleteDrug function.
 	 */
-	public void deleteDrug(Drug aDrug) 
+	public void deleteDrug(Long id) 
 	{
+		Drug aDrug = getDrug(id);
 		aDao.deleteDrug(aDrug);
 	}
     
@@ -61,7 +62,7 @@ public class RdDrugServiceImpl implements RdDrugService {
 	{
 		User user = (User) WebUtils.getSessionAttribute(request, "user");
 		List<Drug> list = aDao.retrieveDrugList(user.getId());
-		WebUtils.setSessionAttribute(request, "List", list);
+		WebUtils.setSessionAttribute(request, "drugList", list);
 		return list;
 	}
 	

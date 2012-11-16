@@ -40,7 +40,7 @@ public class RdLoginController
 			else
 			{
 				WebUtils.setSessionAttribute(request, "user", user);
-				return "dashboard";
+				return "redirect:/dashboard";
 			}
 		}
 	}
