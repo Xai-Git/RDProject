@@ -2,10 +2,11 @@ package rdproject.service;
 
 import java.util.List;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import rdproject.model.Drug;
-import rdproject.model.User;
 
 /**
  * 
@@ -20,4 +21,5 @@ public interface RdDrugService
 	public Double calcDrugDose(Drug aDrug);
 	public List<Drug> retrieveDrugList(HttpServletRequest request);
 	public Drug getDrug(Long id);
+	public byte[] outputPdf(Long id);
 }

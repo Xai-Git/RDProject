@@ -1,19 +1,16 @@
 package rdproject.daoImpl;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.util.WebUtils;
 
 import rdproject.dao.RdDrugDao;
 import rdproject.model.Drug;
-import rdproject.model.User;
+
 
 @Repository
 public class RdDrugDaoImpl implements RdDrugDao
@@ -52,7 +49,10 @@ public class RdDrugDaoImpl implements RdDrugDao
 	 */
 	public void deleteDrug(Drug aDrug) throws DataAccessException
 	{
-		entityManager.remove(aDrug);
+		String hql = "delete from Drug d where d.id = :id";
+		Query query = entityManager.createQuery(hql);
+		query.setParameter("id",aDrug.getId());
+		query.executeUpdate();
 	}
 
 	/**

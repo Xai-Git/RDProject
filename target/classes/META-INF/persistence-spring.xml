@@ -8,6 +8,7 @@
     <persistence-unit name="rdProject" transaction-type="RESOURCE_LOCAL">
         <class>rdproject.model.User</class>
         <class>rdproject.model.Drug</class>
+        <class>rdproject.model.Organization</class>
         <exclude-unlisted-classes/>
     </persistence-unit>
     

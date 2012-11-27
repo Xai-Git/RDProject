@@ -18,7 +18,7 @@ import rdproject.validator.RdDrugValidator;
 
 @Controller
 @RequestMapping("/drug")
-@SessionAttributes("drug")
+@SessionAttributes("drugForm")
 public class RdDrugController 
 {
 	@Autowired
@@ -43,13 +43,15 @@ public class RdDrugController
 	public String edit(@PathVariable("drugId") Long id, ModelMap map, HttpServletRequest request)
 	{
 		Drug drug = drugService.getDrug(id);
-		map.addAttribute("drug", drug);
+		map.addAttribute("drugForm", drug);
 		return "drug";
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)
-	public String add(@ModelAttribute("drugForm") Drug drug, BindingResult result, HttpServletRequest request)
+	public String add( ModelMap map, HttpServletRequest request)
 	{
+		Drug drug = new Drug();
+		map.addAttribute("drugForm", drug);
 		return "drug";
 	}
 }

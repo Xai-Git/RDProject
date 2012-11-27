@@ -28,6 +28,7 @@ public class RdDrugServiceImpl implements RdDrugService {
 	/**
 	 * Deletes a drug from the database by calling RdDrugDao's deleteDrug function.
 	 */
+	@Transactional
 	public void deleteDrug(Long id) 
 	{
 		Drug aDrug = getDrug(id);
@@ -50,6 +51,7 @@ public class RdDrugServiceImpl implements RdDrugService {
 	 */
 	public Double calcDrugDose(Drug	aDrug) 
 	{
+		//need Josh's Code
 		return aDao.calcDrugDose(aDrug);
 	}
 
@@ -69,6 +71,12 @@ public class RdDrugServiceImpl implements RdDrugService {
 	public Drug getDrug(Long id) 
 	{
 		return aDao.getDrug(id);
+	}
+
+	public byte[] outputPdf(Long id) {
+		//Need Josh's Code
+		byte[]  b= new byte[10];
+		return b;
 	}
 
 }

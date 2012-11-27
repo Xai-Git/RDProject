@@ -53,15 +53,13 @@ body {
 				<div class="nav-collapse collapse">
 					<p class="navbar-text pull-right">
 						<a class="btn btn-navbar" data-toggle="collapse"
-						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-					</a> <a class="brand" href="/rdproject-app/login">Logout</a>
+							data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span>
+						</a> <a class="brand" href="/rdproject-app/login">Logout</a>
 					</p>
 					<ul class="nav">
 						<li class="active"><a
 							href="http://www.rightdosefoundation.org/">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
@@ -76,6 +74,10 @@ body {
 					<ul class="nav nav-list">
 						<li class="nav-header">Dashboard Actions</li>
 						<li><a href="/rdproject-app/drug/add">Add a Drug</a></li>
+						<li><a href="/rdproject-app/organization/add">Add your
+								organization info.</a>
+						<li><a href="/rdproject-app/organization/edit/${user.id}">Edit
+								your organization info.</a>
 					</ul>
 				</div>
 				<!--/.well -->
@@ -83,34 +85,46 @@ body {
 			<!--/span-->
 			<div class="span9">
 				<div class="hero-unit">
-					<h1>Drugs</h1>
-					<display:table requestURI="" name="${drugList}" id="drug">
-						<display:column property="drugGName" title="Generic Name" />
-						<display:column property="drugTName" title="Trade name" />
-						<display:column property="drugFocus" title="Drug Focus" />
-						<display:column property="routeAdmin" title="Route of Admin." />
-						<display:column property="reasonAdmin" title="Reason for Admin." />
-						<display:column property="doseWPVValue" title="Dose weight/volume" />
-						<display:column property="doseWPVUnit" title="Dose weight/volume unit" />
-						<display:column property="concWValue" title="Conc. Weight" />
-						<display:column property="concWUnit" title="Conc. Weight unit" />
-						<display:column property="concVValue" title="Conc. Volume" />
-						<display:column property="concVUnit" title="Conc. Volume Unit" />
-						<display:column property="fluidEVValue" title="Fluid E. Volume" />
-						<display:column property="fluidEWVUnit" title="Fluid Eq. Weight/Volume Unit" />
-						<display:column property="methodAdmin" title="Method of Admin." />
-						<display:column property="minSDWValue" title="Min. Single-Dose Weight" />
-						<display:column property="minSDWUnit" title="Min. Single-Dose Wgt. Unit" />
-						<display:column property="maxSDWValue" title="Max. Single-Dose Weight" />
-						<display:column property="maxSDWUnit" title="Max. Single-Dose Weight" />
-						<display:column property="maxTTLDose" title="Max total Dose" />
-						<display:column property="maxWDisplay" title="Max Weight Display" />
-						<display:column property="sNotes" title="Special Notes" />
-						<display:column title=""><a href="/rdproject-app/drug/edit/${drug.id}">edit</a></display:column>
-						<display:column title=""><a href="/rdproject-app/delete/${drug.id}">delete</a></display:column>
-					</display:table>
-					<p></p>
+					<h1>Drug List</h1>
 				</div>
+					<div style="overflow: scroll; width: 1150px; height: 350px">
+						<display:table requestURI="" name="${drugList}" id="drug"
+							class="table table-bordered">
+							<display:column property="drugGName" title="Gen. Name" />
+							<display:column property="drugTName" title="Trade name" />
+							<display:column property="drugFocus" title="Drug Focus" />
+							<display:column property="routeAdmin" title="Route Admin." />
+							<display:column property="reasonAdmin" title="Reason Admin." />
+							<display:column property="doseWPVValue" title="Dose weight/vol." />
+							<display:column property="doseWPVUnit"
+								title="Dose weight/volume unit" />
+							<display:column property="concWValue" title="Conc. Weight" />
+							<display:column property="concWUnit" title="Conc. Weight unit" />
+							<display:column property="concVValue" title="Conc. Volume" />
+							<display:column property="concVUnit" title="Conc. Volume Unit" />
+							<display:column property="fluidEVValue" title="Fluid E. Vol." />
+							<display:column property="fluidEWVUnit"
+								title="Fluid Eq. Weight/Volume Unit" />
+							<display:column property="methodAdmin" title="Method Admin." />
+							<display:column property="minSDWValue" title="Min. SD Weight" />
+							<display:column property="minSDWUnit" title="Min. SD Wgt. Unit" />
+							<display:column property="maxSDWValue" title="Max. SD Weight" />
+							<display:column property="maxSDWUnit" title="Max. SD Weight Unit" />
+							<display:column property="maxTTLDose" title="Max. ttl. Dose" />
+							<display:column property="maxWDisplay"
+								title="Max. Weight Display" />
+							<display:column property="sNotes" title="Special Notes" />
+							<display:column title="">
+								<a href="/rdproject-app/drug/edit/${drug.id}">edit</a>
+							</display:column>
+							<display:column title="">
+								<a href="/rdproject-app//drug-pdf/${drug.id}">download pdf</a>
+							</display:column>
+							<display:column title="">
+								<a href="/rdproject-app/delete/${drug.id}">delete</a>
+							</display:column>
+						</display:table>
+					</div>
 			</div>
 			<!--/span-->
 		</div>
@@ -122,7 +136,7 @@ body {
 
 	<footer class="footer">
 	<div class="container">
-		<p class="pull-right">&copy; Company 2012</p>
+		<p class="pull-right">&copy; RightDose Foundation 2012</p>
 	</div>
 
 	</footer>

@@ -2,12 +2,10 @@ package rdproject.dao;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.dao.DataAccessException;
 
 import rdproject.model.Drug;
-import rdproject.model.User;
+
 
 public interface RdDrugDao 
 {

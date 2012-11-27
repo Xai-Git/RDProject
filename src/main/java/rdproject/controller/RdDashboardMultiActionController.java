@@ -1,5 +1,8 @@
 package rdproject.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.OutputStream;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,17 +46,6 @@ public class RdDashboardMultiActionController
 	}
 	
 	/**
-	 * Handles request for organization information
-	 * @return
-	 * @throws Exception
-	 */
-	@RequestMapping ("/editOrganization")
-	public String handleEditOrganizationInfo() throws Exception
-	{
-		return "editOrganization";
-	}
-	
-	/**
 	 * Handles request to add drug
 	 * @return
 	 * @throws Exception
@@ -72,5 +64,29 @@ public class RdDashboardMultiActionController
 		drugService.deleteDrug(id);
 		return "redirect:/dashboard";
 	}
+	
+	@RequestMapping(value="/drug-pdf{drugId}")
+	public void handleDrugPdfRequest(@PathVariable("drugId") Long id, ModelMap map, HttpServletResponse response, HttpServletRequest request) {
+		try {
+			byte[] b = drugService.outputPdf(id);
+			int size = b.length;
+			byte[] data = new byte[size];
+			ByteArrayInputStream byteStream = new ByteArrayInputStream(b);
+			int in = byteStream.read(data,0,size);
+			byteStream.close();
+			response.setContentType("application/pdf");
+			response.setHeader("Content-Disposition","inline; filename=drug.pdf");
+			response.setHeader("Cache-Control", "no-cache");  
+			response.setDateHeader("Expires", 0);  
+			response.setHeader("Pragma", "No-cache");   
 
+			OutputStream OutStream = response.getOutputStream();  
+			OutStream.write(data);  
+			OutStream.flush();  
+			OutStream.close();  
+		}catch (Exception e){
+			System.out.println(e);
+			e.printStackTrace();
+		}
+	}
 }

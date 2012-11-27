@@ -1,18 +1,30 @@
 package rdproject.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ORGANIZATIONS")
 public class Organization 
 {
 	public Organization () {}
 	
-	public Organization(String orgName, String orgAddr1, String orgAddr2,
+	public Organization(Long id, String orgName, String orgAddr1, String orgAddr2,
 			String orgCity, String orgState, String orgZip, String orgWeb,
 			String orgPhone, String orgFax, String orgEmail, String dirTitle,
 			String dirFName, String dirMName, String dirLName,
 			String dirSuffix, String dirPhone, String dirExt, String dirFax,
 			String dirEmail, String conTitle, String conFName, String conMName,
 			String conLName, String conSuffix, String conPhone, String conFax,
-			String conEmail, String username) {
+			String conEmail, User user) {
 		super();
+		this.id = id;
 		this.orgName = orgName;
 		this.orgAddr1 = orgAddr1;
 		this.orgAddr2 = orgAddr2;
@@ -40,13 +52,24 @@ public class Organization
 		this.conPhone = conPhone;
 		this.conFax = conFax;
 		this.conEmail = conEmail;
-		this.username = username;
+		this.user = user;
 	}
 	
 	/**
 	 * Getters and Setters
 	 * @return
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return this.id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	@Column(name="org_name")
 	public String getOrgName() {
 		return orgName;
 	}
@@ -55,6 +78,7 @@ public class Organization
 		this.orgName = orgName;
 	}
 
+	@Column(name="org_addr1")
 	public String getOrgAddr1() {
 		return orgAddr1;
 	}
@@ -63,6 +87,7 @@ public class Organization
 		this.orgAddr1 = orgAddr1;
 	}
 
+	@Column(name="org_addr2")
 	public String getOrgAddr2() {
 		return orgAddr2;
 	}
@@ -71,6 +96,7 @@ public class Organization
 		this.orgAddr2 = orgAddr2;
 	}
 
+	@Column(name="org_city")
 	public String getOrgCity() {
 		return orgCity;
 	}
@@ -79,6 +105,7 @@ public class Organization
 		this.orgCity = orgCity;
 	}
 
+	@Column(name="org_state")
 	public String getOrgState() {
 		return orgState;
 	}
@@ -87,6 +114,7 @@ public class Organization
 		this.orgState = orgState;
 	}
 
+	@Column(name="org_zip")
 	public String getOrgZip() {
 		return orgZip;
 	}
@@ -94,7 +122,7 @@ public class Organization
 	public void setOrgZip(String orgZip) {
 		this.orgZip = orgZip;
 	}
-
+	@Column(name="org_web")
 	public String getOrgWeb() {
 		return orgWeb;
 	}
@@ -103,6 +131,7 @@ public class Organization
 		this.orgWeb = orgWeb;
 	}
 
+	@Column(name="org_phone")
 	public String getOrgPhone() {
 		return orgPhone;
 	}
@@ -111,6 +140,7 @@ public class Organization
 		this.orgPhone = orgPhone;
 	}
 
+	@Column(name="org_fax")
 	public String getOrgFax() {
 		return orgFax;
 	}
@@ -119,6 +149,7 @@ public class Organization
 		this.orgFax = orgFax;
 	}
 
+	@Column(name="org_email")
 	public String getOrgEmail() {
 		return orgEmail;
 	}
@@ -127,6 +158,7 @@ public class Organization
 		this.orgEmail = orgEmail;
 	}
 
+	@Column(name="dir_title")
 	public String getDirTitle() {
 		return dirTitle;
 	}
@@ -135,6 +167,7 @@ public class Organization
 		this.dirTitle = dirTitle;
 	}
 
+	@Column(name="dir_fname")
 	public String getDirFName() {
 		return dirFName;
 	}
@@ -143,6 +176,7 @@ public class Organization
 		this.dirFName = dirFName;
 	}
 
+	@Column(name="dir_mname")
 	public String getDirMName() {
 		return dirMName;
 	}
@@ -151,6 +185,7 @@ public class Organization
 		this.dirMName = dirMName;
 	}
 
+	@Column(name="dir_lname")
 	public String getDirLName() {
 		return dirLName;
 	}
@@ -159,6 +194,7 @@ public class Organization
 		this.dirLName = dirLName;
 	}
 
+	@Column(name="dir_suffix")
 	public String getDirSuffix() {
 		return dirSuffix;
 	}
@@ -167,6 +203,7 @@ public class Organization
 		this.dirSuffix = dirSuffix;
 	}
 
+	@Column(name="dir_phone")
 	public String getDirPhone() {
 		return dirPhone;
 	}
@@ -175,6 +212,7 @@ public class Organization
 		this.dirPhone = dirPhone;
 	}
 
+	@Column(name="dir_ext")
 	public String getDirExt() {
 		return dirExt;
 	}
@@ -183,6 +221,7 @@ public class Organization
 		this.dirExt = dirExt;
 	}
 
+	@Column(name="dir_fax")
 	public String getDirFax() {
 		return dirFax;
 	}
@@ -190,7 +229,8 @@ public class Organization
 	public void setDirFax(String dirFax) {
 		this.dirFax = dirFax;
 	}
-
+	
+	@Column(name="dir_email")
 	public String getDirEmail() {
 		return dirEmail;
 	}
@@ -199,6 +239,7 @@ public class Organization
 		this.dirEmail = dirEmail;
 	}
 
+	@Column(name="con_title")
 	public String getConTitle() {
 		return conTitle;
 	}
@@ -207,6 +248,7 @@ public class Organization
 		this.conTitle = conTitle;
 	}
 
+	@Column(name="con_fname")
 	public String getConFName() {
 		return conFName;
 	}
@@ -215,6 +257,7 @@ public class Organization
 		this.conFName = conFName;
 	}
 
+	@Column(name="con_mname")
 	public String getConMName() {
 		return conMName;
 	}
@@ -223,6 +266,7 @@ public class Organization
 		this.conMName = conMName;
 	}
 
+	@Column(name="con_lname")
 	public String getConLName() {
 		return conLName;
 	}
@@ -231,6 +275,7 @@ public class Organization
 		this.conLName = conLName;
 	}
 
+	@Column(name="con_suffix")
 	public String getConSuffix() {
 		return conSuffix;
 	}
@@ -239,6 +284,7 @@ public class Organization
 		this.conSuffix = conSuffix;
 	}
 
+	@Column(name="con_phone")
 	public String getConPhone() {
 		return conPhone;
 	}
@@ -247,6 +293,7 @@ public class Organization
 		this.conPhone = conPhone;
 	}
 
+	@Column(name="con_fax")
 	public String getConFax() {
 		return conFax;
 	}
@@ -255,6 +302,7 @@ public class Organization
 		this.conFax = conFax;
 	}
 
+	@Column(name="con_email")
 	public String getConEmail() {
 		return conEmail;
 	}
@@ -263,12 +311,14 @@ public class Organization
 		this.conEmail = conEmail;
 	}
 
-	public String getUsername() {
-		return username;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**
@@ -276,24 +326,26 @@ public class Organization
 	 */
 	@Override
 	public String toString() {
-		return "Organization [orgName=" + orgName + ", orgAddr1=" + orgAddr1
-				+ ", orgAddr2=" + orgAddr2 + ", orgCity=" + orgCity
-				+ ", orgState=" + orgState + ", orgZip=" + orgZip + ", orgWeb="
-				+ orgWeb + ", orgPhone=" + orgPhone + ", orgFax=" + orgFax
-				+ ", orgEmail=" + orgEmail + ", dirTitle=" + dirTitle
-				+ ", dirFName=" + dirFName + ", dirMName=" + dirMName
-				+ ", dirLName=" + dirLName + ", dirSuffix=" + dirSuffix
-				+ ", dirPhone=" + dirPhone + ", dirExt=" + dirExt + ", dirFax="
-				+ dirFax + ", dirEmail=" + dirEmail + ", conTitle=" + conTitle
-				+ ", conFName=" + conFName + ", conMName=" + conMName
-				+ ", conLName=" + conLName + ", conSuffix=" + conSuffix
-				+ ", conPhone=" + conPhone + ", conFax=" + conFax
-				+ ", conEmail=" + conEmail + ", username=" + username + "]";
+		return "Organization [id=" + id + ", orgName=" + orgName
+				+ ", orgAddr1=" + orgAddr1 + ", orgAddr2=" + orgAddr2
+				+ ", orgCity=" + orgCity + ", orgState=" + orgState
+				+ ", orgZip=" + orgZip + ", orgWeb=" + orgWeb + ", orgPhone="
+				+ orgPhone + ", orgFax=" + orgFax + ", orgEmail=" + orgEmail
+				+ ", dirTitle=" + dirTitle + ", dirFName=" + dirFName
+				+ ", dirMName=" + dirMName + ", dirLName=" + dirLName
+				+ ", dirSuffix=" + dirSuffix + ", dirPhone=" + dirPhone
+				+ ", dirExt=" + dirExt + ", dirFax=" + dirFax + ", dirEmail="
+				+ dirEmail + ", conTitle=" + conTitle + ", conFName="
+				+ conFName + ", conMName=" + conMName + ", conLName="
+				+ conLName + ", conSuffix=" + conSuffix + ", conPhone="
+				+ conPhone + ", conFax=" + conFax + ", conEmail=" + conEmail
+				+ ", user=" + user + "]";
 	}
 	
 	/**
 	 * Private member data
 	 */
+	private Long id;
 	private String orgName;
 	private String orgAddr1;
 	private String orgAddr2;
@@ -321,5 +373,5 @@ public class Organization
 	private String conPhone;
 	private String conFax;
 	private String conEmail;
-	private String username;
+	private User user;
 }
