@@ -118,7 +118,7 @@ body {
 								<a href="/rdproject-app/drug/edit/${drug.id}">edit</a>
 							</display:column>
 							<display:column title="">
-								<a href="/rdproject-app//drug-pdf/${drug.id}">download pdf</a>
+								<a href="/rdproject-app/drug-pdf/${drug.id}">download pdf</a>
 							</display:column>
 							<display:column title="">
 								<a href="/rdproject-app/delete/${drug.id}">delete</a>

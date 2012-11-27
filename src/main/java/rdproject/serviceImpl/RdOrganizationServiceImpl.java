@@ -27,7 +27,13 @@ public class RdOrganizationServiceImpl implements RdOrganizationService {
 
 	public Organization getOrg(Long id, HttpServletRequest request) 
 	{
-		User user = (User) WebUtils.getSessionAttribute(request, "user");
-		return orgDao.getOrg(user.getId());
+		Organization org = null;
+		try{
+			User user = (User) WebUtils.getSessionAttribute(request, "user");
+			org = orgDao.getOrg(user.getId());
+		}catch (Exception e){
+			org = null;
+		}
+		return org;
 	}
 }

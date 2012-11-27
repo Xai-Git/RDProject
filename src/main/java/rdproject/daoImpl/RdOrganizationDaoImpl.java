@@ -29,7 +29,7 @@ public class RdOrganizationDaoImpl implements RdOrganizationDao {
 	 * else edit and save old organization
 	 */
 	public void save(Organization anOrg) {
-		if (anOrg.getId() !=  null)
+		if (anOrg.getId() ==  null)
 		{
 			entityManager.persist(anOrg);
 		}

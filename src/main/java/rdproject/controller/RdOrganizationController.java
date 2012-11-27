@@ -43,8 +43,15 @@ public class RdOrganizationController {
 	public String edit(@PathVariable("orgId") Long id, ModelMap map, HttpServletRequest request)
 	{
 		Organization org = orgService.getOrg(id,request);
+		if(org == null)
+		{
+			return "orgeditfail";
+		}
+		else
+		{
 		map.addAttribute("orgForm", org);
 		return "organization";
+		}
 	}
 	
 	@RequestMapping(value="/add", method = RequestMethod.GET)

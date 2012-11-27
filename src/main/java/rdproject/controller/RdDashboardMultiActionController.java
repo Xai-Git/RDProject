@@ -65,7 +65,7 @@ public class RdDashboardMultiActionController
 		return "redirect:/dashboard";
 	}
 	
-	@RequestMapping(value="/drug-pdf{drugId}")
+	@RequestMapping(value="/drug-pdf{drugId}", method = RequestMethod.GET)
 	public void handleDrugPdfRequest(@PathVariable("drugId") Long id, ModelMap map, HttpServletResponse response, HttpServletRequest request) {
 		try {
 			byte[] b = drugService.outputPdf(id);
