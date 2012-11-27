@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import rdproject.dao.RdOrganizationDao;
@@ -28,7 +29,8 @@ public class RdOrganizationDaoImpl implements RdOrganizationDao {
 	 * if it is new organization info. save it new
 	 * else edit and save old organization
 	 */
-	public void save(Organization anOrg) {
+	public void save(Organization anOrg) throws DataAccessException
+	{
 		if (anOrg.getId() ==  null)
 		{
 			entityManager.persist(anOrg);
