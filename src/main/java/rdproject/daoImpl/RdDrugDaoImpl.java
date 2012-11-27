@@ -34,7 +34,7 @@ public class RdDrugDaoImpl implements RdDrugDao
 	 */	
 	public void saveDrug(Drug aDrug) throws DataAccessException
 	{
-		if (aDrug.getId() !=  null)
+		if (aDrug.getId() == null)
 		{
 			entityManager.persist(aDrug);
 		}
